@@ -1,1614 +1,311 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Александр Понявин — Автор, контент-редактор и копирайтер</title>
-  <meta name="description" content="Портфолио Александра Понявина: аналитические лонгриды в СМИ, глубокий фактчекинг, экспертные обзоры техники и ведение Telegram-проектов.">
-  
-  <!-- OpenGraph для красивого превью ссылки в Telegram и соцсетях -->
-  <meta property="og:title" content="Александр Понявин — Портфолио автора и контент-редактора">
-  <meta property="og:description" content="Аналитические лонгриды, материалы с глубоким фактчекингом, экспертные обзоры устройств и контент для комьюнити.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ap5vape.github.io/resume/">
-  <meta property="og:image" content="https://ap5vape.github.io/resume/images/sub.jpg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-color: #070a10;
-      --bg-elevated: #0d131f;
-      --card-bg: rgba(19, 26, 38, 0.72);
-      --card-hover: rgba(26, 36, 54, 0.88);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(56, 189, 248, 0.45);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --accent: #38bdf8;
-      --accent-secondary: #818cf8;
-      --accent-glow: rgba(56, 189, 248, 0.2);
-      --tag-bg: rgba(56, 189, 248, 0.1);
-      --tag-border: rgba(56, 189, 248, 0.25);
-      --success: #10b981;
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.65;
-      overflow-x: hidden;
-      position: relative;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Фоновая сетка и анимированное атмосферное свечение */
-    .bg-Canvas {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      overflow: hidden;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, #000 40%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, #000 40%, transparent 100%);
-    }
-
-    .ambient-orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(110px);
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.45;
-      animation: floatOrb 18s ease-in-out infinite alternate;
-    }
-
-    .orb-1 {
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.22), transparent 70%);
-      top: -140px;
-      left: calc(50% - 540px);
-    }
-
-    .orb-2 {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(129, 140, 248, 0.18), transparent 70%);
-      top: 30%;
-      right: calc(50% - 580px);
-      animation-delay: -7s;
-    }
-
-    @keyframes floatOrb {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(35px, 25px) scale(1.08); }
-      100% { transform: translate(-25px, 45px) scale(0.95); }
-    }
-
-    /* Прогресс-бар чтения сверху */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-      width: 0%;
-      z-index: 1000;
-      box-shadow: 0 0 12px var(--accent);
-      transition: width 0.1s linear;
-    }
-
-    /* Плавающая навигация */
-    .navbar-wrapper {
-      position: sticky;
-      top: 1rem;
-      z-index: 100;
-      padding: 0 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .navbar {
-      max-width: 1020px;
-      margin: 0 auto;
-      background: rgba(13, 19, 31, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border-color);
-      border-radius: 9999px;
-      padding: 0.65rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-      transition: border-color 0.3s ease, background 0.3s ease;
-    }
-
-    .navbar:hover {
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .nav-brand {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-brand-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 1.75rem;
-      list-style: none;
-    }
-
-    @media (min-width: 768px) {
-      .nav-links {
-        display: flex;
-      }
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-      position: relative;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text-main);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 2px;
-      transition: width 0.25s var(--transition-smooth);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--accent);
-      padding: 0.45rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.825rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .nav-cta:hover {
-      background: var(--accent);
-      color: #070a10;
-      box-shadow: 0 0 18px var(--accent-glow);
-      transform: translateY(-1px);
-    }
-
-    /* Основной контейнер */
-    .container {
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 3.5rem 1.5rem 6rem;
-    }
-
-    /* HERO СЕКЦИЯ */
-    .hero {
-      padding: 2rem 0 4rem;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 4.5rem;
-      position: relative;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      color: #34d399;
-      padding: 0.4rem 0.95rem;
-      border-radius: 9999px;
-      font-size: 0.825rem;
-      font-weight: 500;
-      margin-bottom: 1.75rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--success);
-      border-radius: 50%;
-      position: relative;
-    }
-
-    .status-dot::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background-color: var(--success);
-      opacity: 0.5;
-      animation: pulseDot 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-
-    @keyframes pulseDot {
-      75%, 100% {
-        transform: scale(2.2);
-        opacity: 0;
-      }
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.12;
-      margin-bottom: 1.25rem;
-      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-role-highlight {
-      display: block;
-      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-      font-weight: 600;
-      margin-top: 0.4rem;
-      background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-lead {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 740px;
-      margin-bottom: 2.25rem;
-      line-height: 1.7;
-    }
-
-    .hero-lead strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      padding: 0.85rem 1.6rem;
-      border-radius: var(--radius-md);
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s var(--transition-smooth);
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent) 0%, #0284c7 100%);
-      color: #070a10;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 8px 25px -6px rgba(56, 189, 248, 0.45);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 30px -6px rgba(56, 189, 248, 0.65);
-      filter: brightness(1.08);
-    }
-
-    /* Компонент почты */
-    .email-container {
-      display: inline-flex;
-      align-items: center;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 0.4rem 0.45rem 0.4rem 1.1rem;
-      gap: 0.85rem;
-      backdrop-filter: blur(12px);
-      transition: all 0.25s ease;
-    }
-
-    .email-container:hover {
-      border-color: var(--border-highlight);
-      background: var(--card-hover);
-      transform: translateY(-2px);
-    }
-
-    .email-info {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--text-main);
-      font-size: 0.95rem;
-    }
-
-    .email-info svg {
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .email-address {
-      user-select: all;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      border-radius: 8px;
-      padding: 0.5rem 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      font-family: inherit;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .copy-btn:hover {
-      background: var(--tag-bg);
-      color: var(--accent);
-      border-color: var(--tag-border);
-    }
-
-    .copy-btn.copied {
-      background: rgba(16, 185, 129, 0.15);
-      border-color: rgba(16, 185, 129, 0.4);
-      color: #34d399;
-    }
-
-    /* Мини-статистика в Hero */
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    @media (min-width: 720px) {
-      .hero-stats {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .stat-card {
-      background: rgba(19, 26, 38, 0.5);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.1rem 1.25rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .stat-card:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-      transform: translateY(-2px);
-    }
-
-    .stat-value {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.03em;
-      display: flex;
-      align-items: baseline;
-      gap: 0.25rem;
-    }
-
-    .stat-value span {
-      color: var(--accent);
-      font-size: 1.1rem;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    /* СЕКЦИИ */
-    .section {
-      margin-bottom: 5.5rem;
-    }
-
-    .section-header {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2.25rem;
-    }
-
-    @media (min-width: 768px) {
-      .section-header.with-filters {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-      }
-    }
-
-    .section-eyebrow {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-      display: inline-block;
-    }
-
-    .section-title {
-      font-size: clamp(1.55rem, 3vw, 2rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      color: var(--text-main);
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      margin-top: 0.35rem;
-      max-width: 640px;
-    }
-
-    /* Фильтры публикаций */
-    .filter-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 0.45rem 0.9rem;
-      border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      font-family: inherit;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .filter-btn:hover {
-      color: var(--text-main);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .filter-btn.active {
-      background: var(--tag-bg);
-      color: var(--accent);
-      border-color: var(--tag-border);
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
-    }
-
-    /* СЕТКА И КАРТОЧКИ С SPOTLIGHT-ЭФФЕКТОМ */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 720px) {
-      .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .spotlight-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      backdrop-filter: blur(12px);
-      transition: transform 0.35s var(--transition-smooth), border-color 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    /* Динамическое свечение за курсором */
-    .spotlight-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        600px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
-        rgba(56, 189, 248, 0.11),
-        transparent 40%
-      );
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .spotlight-card:hover::before {
-      opacity: 1;
-    }
-
-    .spotlight-card:hover {
-      background: var(--card-hover);
-      border-color: var(--border-highlight);
-      transform: translateY(-6px);
-      box-shadow: 0 22px 40px -15px rgba(0, 0, 0, 0.55), 0 0 25px -5px rgba(56, 189, 248, 0.15);
-    }
-
-    /* Горизонтальная карточка для главного лонгрида */
-    @media (min-width: 768px) {
-      .card-featured {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: 1.15fr 1fr;
-      }
-      .card-featured .card-thumb {
-        height: 100%;
-        min-height: 290px;
-      }
-    }
-
-    .card-thumb {
-      width: 100%;
-      height: 210px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      position: relative;
-    }
-
-    .card-thumb::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(13, 19, 31, 0.7) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .card-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s var(--transition-smooth), filter 0.4s ease;
-    }
-
-    .spotlight-card:hover .card-thumb img {
-      transform: scale(1.06);
-    }
-
-    /* Плашка поверх картинки */
-    .thumb-meta {
-      position: absolute;
-      top: 0.85rem;
-      right: 0.85rem;
-      z-index: 2;
-      background: rgba(7, 10, 16, 0.75);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
-      font-size: 0.72rem;
-      font-weight: 500;
-      padding: 0.25rem 0.65rem;
-      border-radius: 9999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .card-body {
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-grow: 1;
-      position: relative;
-      z-index: 2;
-    }
-
-    .badge-row {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.85rem;
-    }
-
-    .badge {
-      font-size: 0.74rem;
-      font-weight: 500;
-      padding: 0.22rem 0.65rem;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
-    }
-
-    .badge.highlight {
-      background: var(--tag-bg);
-      color: var(--accent);
-      border-color: var(--tag-border);
-    }
-
-    .badge.featured-tag {
-      background: rgba(129, 140, 248, 0.15);
-      color: #a5b4fc;
-      border-color: rgba(129, 140, 248, 0.35);
-    }
-
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      line-height: 1.38;
-      margin-bottom: 0.65rem;
-      letter-spacing: -0.015em;
-      transition: color 0.2s ease;
-    }
-
-    .spotlight-card:hover .card-title {
-      color: var(--accent);
-    }
-
-    .card-snippet {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.875rem;
-      color: var(--accent);
-      font-weight: 600;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .arrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(56, 189, 248, 0.1);
-      transition: transform 0.25s var(--transition-smooth), background 0.25s ease;
-    }
-
-    .spotlight-card:hover .arrow {
-      transform: translateX(4px);
-      background: var(--accent);
-      color: #070a10;
-    }
-
-    /* Анимация скрытия при фильтрации */
-    .article-item.hidden {
-      display: none;
-    }
-
-    /* BENTO-СЕТКА НАВЫКОВ */
-    .bento-skills {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    @media (min-width: 768px) {
-      .bento-skills {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .skill-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .skill-card:hover {
-      border-color: var(--border-highlight);
-      transform: translateY(-4px);
-    }
-
-    .skill-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-
-    .skill-card h4 {
-      font-size: 1.12rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-main);
-    }
-
-    .skill-card ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .skill-card li {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      line-height: 1.45;
-    }
-
-    .skill-card li svg {
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 0.2rem;
-    }
-
-    /* ЭТАПЫ РАБОТЫ (WORKFLOW) */
-    .workflow-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1.25rem;
-    }
-
-    @media (min-width: 768px) {
-      .workflow-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .workflow-step {
-      background: rgba(19, 26, 38, 0.45);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.35rem;
-      position: relative;
-      transition: border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .workflow-step:hover {
-      background: var(--card-bg);
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
-    .step-num {
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--accent);
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
-      padding: 0.2rem 0.55rem;
-      border-radius: 6px;
-      display: inline-block;
-      margin-bottom: 0.75rem;
-    }
-
-    .workflow-step h5 {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--text-main);
-    }
-
-    .workflow-step p {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-cta-box {
-      background: linear-gradient(180deg, rgba(19, 26, 38, 0.9) 0%, rgba(11, 15, 23, 0.9) 100%);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2.75rem 2rem;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .footer-cta-title {
-      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .footer-cta-sub {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      max-width: 520px;
-    }
-
-    .footer-contacts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      justify-content: center;
-      margin-top: 0.5rem;
-    }
-
-    .copyright {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-    }
-
-    /* АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-
-    /* ВСПЛЫВАЮЩЕЕ УВЕДОМЛЕНИЕ (TOAST) */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #10b981;
-      color: #052e16;
-      font-weight: 600;
-      font-size: 0.875rem;
-      padding: 0.65rem 1.25rem;
-      border-radius: 9999px;
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s var(--transition-smooth);
-      z-index: 9999;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .ambient-orb {
-        animation: none;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildberries - Магазин</title>
+    <style>
+        /* Базовые стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+            color: #333;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: #cb11ab;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 40px;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: #fff;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            color: #cb11ab;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .nav-links span {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        /* Основной контент */
+        .hero-banner {
+            background: linear-gradient(135deg, #cb11ab 0%, #481173 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-banner h1 {
+            margin: 0 0 10px 0;
+            font-size: 36px;
+        }
+
+        .hero-banner p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Сетка товаров */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-brand {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #ffcc00;
+            margin-right: 5px;
+        }
+
+        .price-block {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .current-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #cb11ab;
+        }
+
+        .old-price {
+            font-size: 13px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff3c6d;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .search-bar {
+                margin: 10px 0;
+                width: 100%;
+            }
+            .nav-links {
+                font-size: 10px;
+                gap: 10px;
+            }
+            .nav-links span {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Прогресс чтения -->
-  <div class="scroll-progress" id="scroll-progress"></div>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-content">
+            Wildberries
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Я ищу...">
+                <button>🔍</button>
+            </div>
 
-  <!-- Атмосферный фон -->
-  <div class="bg-Canvas"></div>
-  <div class="ambient-orb orb-1"></div>
-  <div class="ambient-orb orb-2"></div>
-
-  <!-- Навигация -->
-  <div class="navbar-wrapper">
-    <nav class="navbar">
-      <a href="#" class="nav-brand">
-        <span class="nav-brand-dot"></span>
-        Александр Понявин
-      </a>
-      <ul class="nav-links">
-        <li><a href="#articles">Публикации в СМИ</a></li>
-        <li><a href="#reviews">Обзоры</a></li>
-        <li><a href="#skills">Компетенции</a></li>
-        <li><a href="#contacts">Контакты</a></li>
-      </ul>
-      <a href="https://t.me/emtblds" target="_blank" rel="noopener noreferrer" class="nav-cta">
-        Написать в TG
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
-        </svg>
-      </a>
-    </nav>
-  </div>
-
-  <div class="container">
-
-    <!-- HERO -->
-    <header class="hero">
-      <div class="status-badge reveal">
-        <span class="status-dot"></span>
-        Доступен для удаленной работы и проектных задач под дедлайн
-      </div>
-
-      <h1 class="reveal delay-1">
-        Александр Понявин
-        <span class="hero-role-highlight">Автор, контент-редактор и копирайтер</span>
-      </h1>
-
-      <p class="hero-lead reveal delay-2">
-        Готовлю <strong>аналитические лонгриды</strong>, журналистские материалы с глубоким фактчекингом, экспертные обзоры техники и посты для профильных комьюнити. Пишу чистым языком без воды, разбираюсь в сложных темах и сдаю тексты точно в срок. Студент 4 курса журналистики АлтГУ.
-      </p>
-
-      <div class="hero-actions reveal delay-3">
-        <!-- Telegram -->
-        <a href="https://t.me/emtblds" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/>
-          </svg>
-          Связаться в Telegram
-        </a>
-
-        <!-- Почта с копированием -->
-        <div class="email-container">
-          <div class="email-info">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="16" x="2" y="4" rx="2"/>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-            </svg>
-            <span class="email-address">Sphonegame2005@gmail.com</span>
-          </div>
-          <button class="copy-btn" onclick="copyEmailToClipboard(this)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-            </svg>
-            <span>Скопировать</span>
-          </button>
+            <nav class="nav-links">
+                
+                    <span>🛍️</span>
+                    Корзина
+                
+                
+                    <span>👤</span>
+                    Профиль
+                
+                
+                    <span>📍</span>
+                    Адреса
+                
+            </nav>
         </div>
-      </div>
-
-      <!-- Витрина фактов -->
-      <div class="hero-stats reveal delay-3">
-        <div class="stat-card spotlight-card">
-          <div class="stat-value">СМИ <span>& Digital</span></div>
-          <div class="stat-label">Опыт публикаций на «Катунь 24»</div>
-        </div>
-        <div class="stat-card spotlight-card">
-          <div class="stat-value">Fact<span>-check</span></div>
-          <div class="stat-label">Работа с исследованиями и источниками</div>
-        </div>
-        <div class="stat-card spotlight-card">
-          <div class="stat-value">4 курс <span>АлтГУ</span></div>
-          <div class="stat-label">Профильное образование (Журналистика)</div>
-        </div>
-        <div class="stat-card spotlight-card">
-          <div class="stat-value">100% <span>в срок</span></div>
-          <div class="stat-label">Четкая работа по ТЗ и редполитике</div>
-        </div>
-      </div>
     </header>
 
-    <!-- РАЗДЕЛ 1: ПУБЛИКАЦИИ В СМИ -->
-    <section class="section" id="articles">
-      <div class="section-header with-filters reveal">
-        <div>
-          <span class="section-eyebrow">Журналистика & Лонгриды</span>
-          <h2 class="section-title">Публикации в СМИ («Катунь 24»)</h2>
-          <p class="section-desc">Авторские аналитические материалы: исследования рынков, цифровая культура, научпоп и разбор мифов</p>
+    <!-- Баннер -->
+    <section class="hero-banner">
+        <div class="container">
+            <h1>Распродажа сезона</h1>
+            <p>Скидки до 70% на одежду и обувь</p>
         </div>
-
-        <!-- Фильтры рубрик -->
-        <div class="filter-tabs" role="tablist">
-          <button class="filter-btn active" data-filter="all">Все материалы</button>
-          <button class="filter-btn" data-filter="tech">Экономика & Медиа</button>
-          <button class="filter-btn" data-filter="culture">Культура</button>
-          <button class="filter-btn" data-filter="science">Научпоп & Фактчекинг</button>
-        </div>
-      </div>
-
-      <div class="grid grid-2" id="articles-grid">
-        
-        <!-- Карточка 1: Подписки -->
-        <a href="https://katun24.ru/news/851239" target="_blank" rel="noopener noreferrer" class="spotlight-card article-item reveal" data-category="tech">
-          <div class="card-thumb">
-            <span class="thumb-meta">⏱ 5 мин чтения</span>
-            <img src="images/sub.jpg" alt="Как подписки незаметно стали новой строкой расходов" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">Экономика & IT</span>
-                <span class="badge">Аналитика</span>
-              </div>
-              <h3 class="card-title">Как подписки незаметно стали новой строкой расходов</h3>
-              <p class="card-snippet">
-                Исследование подписочной модели в РФ: трансформация потребления, «усталость от подписок», экосистемная привязка клиентов и темные паттерны удержания.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Читать материал на Катунь 24</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Карточка 2: Мессенджеры -->
-        <a href="https://katun24.ru/news/851242" target="_blank" rel="noopener noreferrer" class="spotlight-card article-item reveal delay-1" data-category="tech">
-          <div class="card-thumb">
-            <span class="thumb-meta">⏱ 4 мин чтения</span>
-            <img src="images/voice.jpg" alt="Эпоха голосовых и кружочков" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">Медиа & Коммуникации</span>
-                <span class="badge">Цифровой этикет</span>
-              </div>
-              <h3 class="card-title">Эпоха голосовых и кружочков: как мессенджеры меняют правила общения</h3>
-              <p class="card-snippet">
-                Трансформация онлайн-этикета: прослушивание войсов на скорости х2, феномен видеокружков, баланс личных границ и нормы деловой переписки.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Читать материал на Катунь 24</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Карточка 3: 2012-й -->
-        <a href="https://katun24.ru/news/851238" target="_blank" rel="noopener noreferrer" class="spotlight-card article-item reveal" data-category="culture">
-          <div class="card-thumb">
-            <span class="thumb-meta">⏱ 5 мин чтения</span>
-            <img src="images/2012.jpg" alt="Верните мой 2012-й" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">Культура & Тренды</span>
-                <span class="badge">Digital-ностальгия</span>
-              </div>
-              <h3 class="card-title">Верните мой 2012-й: почему эстетика ранних соцсетей снова в моде</h3>
-              <p class="card-snippet">
-                Феномен возвращения эстетики 2010-х: мыльницы со вспышкой, инди-рок, усталость от алгоритмического глянца и поиск искренности в интернете.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Читать материал на Катунь 24</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Карточка 4: Эффект Манделы -->
-        <a href="https://katun24.ru/news/851244" target="_blank" rel="noopener noreferrer" class="spotlight-card article-item reveal delay-1" data-category="science">
-          <div class="card-thumb">
-            <span class="thumb-meta">⏱ 6 мин чтения</span>
-            <img src="images/mandela.jpg" alt="Эффект Манделы" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">Научпоп & Психология</span>
-                <span class="badge">Когнитивистика</span>
-              </div>
-              <h3 class="card-title">Эффект Манделы: почему мозг подменяет наши воспоминания</h3>
-              <p class="card-snippet">
-                Популярный разбор когнитивных искажений памяти: почему мозг работает как «конструктор», откуда берутся коллективные иллюзии и мифы в поп-культуре.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Читать материал на Катунь 24</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Карточка 5: Вейпинг (Журнальная горизонтальная раскладка) -->
-        <a href="https://katun24.ru/news/851241" target="_blank" rel="noopener noreferrer" class="spotlight-card card-featured article-item reveal" data-category="science">
-          <div class="card-thumb">
-            <span class="thumb-meta">⏱ 7 мин чтения · Спецматериал</span>
-            <img src="images/vape-article.jpg" alt="Вейпинг в России: факты и мифы" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge featured-tag">Главный разбор</span>
-                <span class="badge highlight">Фактчекинг</span>
-                <span class="badge">Общество & Безопасность</span>
-              </div>
-              <h3 class="card-title">Вейпинг в России: что в этой теме правда, а что страшилки</h3>
-              <p class="card-snippet">
-                Большой объективный разбор темы без кликбейта и морализаторства: реальные причины вспышки EVALI в США, химия состава жидкостей, специфика солевого никотина, дефицит долгосрочных клинических исследований и проблема серого рынка в РФ.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Читать полный разбор на Катунь 24</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
     </section>
 
-    <!-- РАЗДЕЛ 2: ТЕМАТИЧЕСКИЕ ОБЗОРЫ -->
-    <section class="section" id="reviews">
-      <div class="section-header reveal">
-        <div>
-          <span class="section-eyebrow">Авторский Telegram-проект</span>
-          <h2 class="section-title">Обзоры девайсов (PrimeVapor Review)</h2>
-          <p class="section-desc">Ведение профильного канала: детальный технический разбор устройств, конструктива баков, эргономики и вкусопередачи</p>
-        </div>
-      </div>
-
-      <div class="grid grid-2">
-        <a href="https://t.me/PrimeVapor_Review/13" target="_blank" rel="noopener noreferrer" class="spotlight-card reveal">
-          <div class="card-thumb">
-            <span class="thumb-meta">Telegram Post #13</span>
-            <img src="images/review-3.jpg" alt="Обзор устройства #3" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">PrimeVapor</span>
-                <span class="badge">Обзор девайса</span>
-              </div>
-              <h3 class="card-title">Тест-драйв устройства: конструктив и эксплуатация #3</h3>
-              <p class="card-snippet">
-                Глубокий разбор эргономики, качества сборки, вкусопередачи, нюансов обслуживания и честный вердикт для конечных пользователей.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Открыть пост в Telegram</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://t.me/PrimeVapor_Review/12" target="_blank" rel="noopener noreferrer" class="spotlight-card reveal delay-1">
-          <div class="card-thumb">
-            <span class="thumb-meta">Telegram Post #12</span>
-            <img src="images/review-2.jpg" alt="Обзор устройства #2" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">PrimeVapor</span>
-                <span class="badge">Обзор девайса</span>
-              </div>
-              <h3 class="card-title">Тест-драйв устройства: автономность и затяжка #2</h3>
-              <p class="card-snippet">
-                Оценка реальной автономности аккумулятора, работы регулировки обдува, сценариев ежедневного использования и сравнение с конкурентами.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Открыть пост в Telegram</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://t.me/PrimeVapor_Review/4" target="_blank" rel="noopener noreferrer" class="spotlight-card reveal">
-          <div class="card-thumb">
-            <span class="thumb-meta">Telegram Post #4</span>
-            <img src="images/review-1.jpg" alt="Обзор устройства #1" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge highlight">PrimeVapor</span>
-                <span class="badge">Технический разбор</span>
-              </div>
-              <h3 class="card-title">Технический разбор: комплектация и опыт #1</h3>
-              <p class="card-snippet">
-                Детальный взгляд на комплектацию, конструктив испарительной базы и картриджей, технические характеристики и поведение при длительном тесте.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Открыть пост в Telegram</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://t.me/PrimeVapor_Review" target="_blank" rel="noopener noreferrer" class="spotlight-card reveal delay-1">
-          <div class="card-thumb">
-            <span class="thumb-meta">@PrimeVapor_Review</span>
-            <img src="images/channel.jpg" alt="Telegram-канал PrimeVapor Review" loading="lazy">
-          </div>
-          <div class="card-body">
-            <div>
-              <div class="badge-row">
-                <span class="badge featured-tag">Telegram-канал</span>
-                <span class="badge highlight">Комьюнити</span>
-              </div>
-              <h3 class="card-title">Канал @PrimeVapor_Review</h3>
-              <p class="card-snippet">
-                Авторская площадка с честными обзорами железа, разбором новинок индустрии, ответами на вопросы и живым общением с профильной аудиторией.
-              </p>
-            </div>
-            <div class="card-link">
-              <span>Перейти в Telegram-канал</span>
-              <span class="arrow">→</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- РАЗДЕЛ 3: КОМПЕТЕНЦИИ И ПРОЦЕСС РАБОТЫ -->
-    <section class="section" id="skills">
-      <div class="section-header reveal">
-        <div>
-          <span class="section-eyebrow">Навыки & Подход к задачам</span>
-          <h2 class="section-title">Компетенции и формат работы</h2>
-          <p class="section-desc">Сочетаю академическую журналистскую базу с практическим пониманием digital-форматов и нишевых продуктов</p>
-        </div>
-      </div>
-
-      <div class="bento-skills">
-        <!-- Колонка 1 -->
-        <div class="skill-card spotlight-card reveal">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <h4>Тексты & Редактура</h4>
-          <ul>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Аналитические лонгриды, статьи и спецпроекты
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Глубокий фактчекинг и работа с первоисточниками
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Четкая структура, инфостиль без воды и штампов
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Быстрая адаптация под редполитику и Tone of Voice
-            </li>
-          </ul>
-        </div>
-
-        <!-- Колонка 2 -->
-        <div class="skill-card spotlight-card reveal delay-1">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-            </svg>
-          </div>
-          <h4>Нишевый и Tech-контент</h4>
-          <ul>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Детальные обзоры девайсов, железа и электроники
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Развитие и контент-планирование Telegram-каналов
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Понимание болей, сленга и запросов аудитории
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Перевод сложных технических характеристик на живой язык
-            </li>
-          </ul>
-        </div>
-
-        <!-- Колонка 3 -->
-        <div class="skill-card spotlight-card reveal delay-2">
-          <div class="skill-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <h4>Условия сотрудничества</h4>
-          <ul>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              100% удаленный асинхронный формат работы
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Железное соблюдение согласованных дедлайнов
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Проектная оплата за статьи / фикс за ведение канала
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Открыт к небольшому профильному тестовому заданию
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Этапы работы над материалом -->
-      <div class="workflow-grid reveal delay-2">
-        <div class="workflow-step">
-          <span class="step-num">ШАГ 01</span>
-          <h5>Бриф и задача</h5>
-          <p>Фиксируем цель текста, целевую аудиторию, формат площадки, объем и точный дедлайн.</p>
-        </div>
-        <div class="workflow-step">
-          <span class="step-num">ШАГ 02</span>
-          <h5>Ресерч и фактура</h5>
-          <p>Собираю статистику, исследования и комментарии, проверяю факты и формирую логический скелет статьи.</p>
-        </div>
-        <div class="workflow-step">
-          <span class="step-num">ШАГ 03</span>
-          <h5>Написание и верстка</h5>
-          <p>Пишу плотный текст с подзаголовками, лидом и выводами, вычищаю канцелярит и словесный мусор.</p>
-        </div>
-        <div class="workflow-step">
-          <span class="step-num">ШАГ 04</span>
-          <h5>Сдача в срок</h5>
-          <p>Передаю готовый к публикации материал, при необходимости оперативно вношу финальные правки редактора.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER / КОНТАКТЫ -->
-    <footer id="contacts" class="reveal">
-      <div class="footer-cta-box spotlight-card">
-        <span class="section-eyebrow">Открыт к предложениям</span>
-        <h3 class="footer-cta-title">Ищете автора, который погружается в тему и не срывает сроки?</h3>
-        <p class="footer-cta-sub">
-          Напишите мне в Telegram или на почту — обсудим вашу задачу, форматы материалов и условия работы.
-        </p>
-
-        <div class="footer-contacts">
-          <a href="https://t.me/emtblds" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/>
-            </svg>
-            Telegram: @emtblds
-          </a>
-
-          <div class="email-container">
-            <div class="email-info">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="16" x="2" y="4" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-              <span class="email-address">Sphonegame2005@gmail.com</span>
-            </div>
-            <button class="copy-btn" onclick="copyEmailToClipboard(this)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-              </svg>
-              <span>Скопировать</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <p class="copyright">© Александр Понявин · Портфолио автора и контент-редактора</p>
-    </footer>
-
-  </div>
-
-  <!-- Toast уведомление -->
-  <div class="toast" id="toast">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    Почта Sphonegame2005@gmail.com скопирована!
-  </div>
-
-  <script>
-    // 1. Копирование почты + всплывающий Toast
-    function copyEmailToClipboard(button) {
-      const email = 'Sphonegame2005@gmail.com';
-      const toast = document.getElementById('toast');
-
-      navigator.clipboard.writeText(email).then(() => {
-        const textSpan = button.querySelector('span');
-        const originalText = textSpan.innerText;
+    <!-- Сетка товаров -->
+    <main class="container">
+        <h2 style="margin-bottom: 20px;">Популярные товары</h2>
         
-        button.classList.add('copied');
-        textSpan.innerText = 'Скопировано!';
-        toast.classList.add('show');
-        
-        setTimeout(() => {
-          button.classList.remove('copied');
-          textSpan.innerText = originalText;
-          toast.classList.remove('show');
-        }, 2200);
-      }).catch(err => {
-        console.error('Ошибка копирования: ', err);
-      });
-    }
+        <div class="products-grid">
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div class="discount-badge">-45%</div>
+                <img src="https://via.placeholder.com/300x400/333333/ffffff?text=Платье" alt="Платье" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">ZARINA</div>
+                    <div class="product-title">Платье женское летнее сарафан из вискозы</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>1245 отзывов</span>
+                    </div>
+                    <div class="price-block">
+                        <span class="current-price">1 990 ₽</span>
+                        <span class="old-price">3 600 ₽</span>
+                    </div>
+                </div>
+            </div>
 
-    // 2. Spotlight-свечение карточек за курсором
-    document.querySelectorAll('.spotlight-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-    });
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <div class="discount-badge">-20%</div>
+                <img src="https://via.placeholder.com/300x400/555555/ffffff?text=Кроссовки" alt="Кроссовки" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">LACOSTE</div>
+                    <div class="product-title">Кроссовки мужские спортивные для бега</div>
+                    <div class="product-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>890 отзывов</span>
+                    </div>
+                    <div class="price-block">
+                        <span class="current-price">4 500 ₽</span>
+                        <span class="old-price">5 600 ₽</span>
+                    </div>
+                </div>
+            </div>
 
-    // 3. Плавное появление элементов при скролле (IntersectionObserver)
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // 4. Индикатор прогресса прокрутки и подсветка активного пункта меню
-    const progressBar = document.getElementById('scroll-progress');
-    const sections = document.querySelectorAll('section[id], footer[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = `${progress}%`;
-
-      let currentSection = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 160;
-        if (scrollTop >= sectionTop) {
-          currentSection = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
-        }
-      });
-    }, { passive: true });
-
-    // 5. Фильтрация статей по категориям
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const articleItems = document.querySelectorAll('.article-item');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        articleItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filterValue === 'all' || category === filterValue) {
-            item.classList.remove('hidden');
-            item.animate([
-              { opacity: 0, transform: 'scale(0.96) translateY(10px)' },
-              { opacity: 1, transform: 'scale(1) translateY(0)' }
-            ], {
-              duration: 320,
-              easing: 'cubic-bezier(0.16, 1, 0.3, 1)'
-            });
-          } else {
-            item.classList.add('hidden');
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <div class="discount-badge">-60%</div>
+                <img src="https://via.placeholder.com/300x400/777777/ffffff?text=Рюкзак" alt="Рюкзак" class="product-image">
+                <div class="product-info">
+                    <div class="product-brand">DEELUXE</div>
+                    <div class="product-title">Рюкзак городской водонеп
